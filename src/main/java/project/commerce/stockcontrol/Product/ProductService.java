@@ -1,9 +1,12 @@
 package project.commerce.stockcontrol.Product;
 
+import org.springframework.stereotype.Service;
 import project.commerce.stockcontrol.entity.Model.Product;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -12,8 +15,13 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getProductsByIdIn(List<Long> productIds) {
-        return productRepository.getProductsByIdIn(productIds);
+    public Optional<Product> findById (Long id) {
+        return productRepository.findById(id);
     }
+
+    public Product save(Product product) {
+        return productRepository.save(product);
+    }
+
 }
 

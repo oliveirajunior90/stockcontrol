@@ -1,33 +1,24 @@
 package project.commerce.stockcontrol.entity.Model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
 
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ingredient")
 public class Ingredient {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     private String name;
-
-    @Column(name = "quantity_in_stock")
-    @JsonProperty("quantity_in_stock")
     private double quantityInStock;
-
     private String unity;
-
     private String slug;
 
     @CreationTimestamp
@@ -90,6 +81,10 @@ public class Ingredient {
         this.slug = slug;
     }
 
+    public void setUpdatedAt() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -103,19 +98,19 @@ public class Ingredient {
     }
 
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Ingredient ingredient = (Ingredient) obj;
-        return Double.compare(ingredient.quantityInStock, quantityInStock) == 0 &&
-                id.equals(ingredient.id) &&
-                name.equals(ingredient.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, quantityInStock);
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) return true;
+//        if (obj == null || getClass() != obj.getClass()) return false;
+//        Ingredient ingredient = (Ingredient) obj;
+//        return Double.compare(ingredient.quantityInStock, quantityInStock) == 0 &&
+//                id.equals(ingredient.id) &&
+//                name.equals(ingredient.name);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, quantityInStock);
+//    }
 }
 

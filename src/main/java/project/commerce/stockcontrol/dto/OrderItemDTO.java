@@ -1,7 +1,8 @@
 package project.commerce.stockcontrol.dto;
 
 public record OrderItemDTO(
-        Long ProductId,
+        Long orderId,
+        Long productId,
         int quantity
 ) {
 }

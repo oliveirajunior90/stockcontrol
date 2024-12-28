@@ -36,9 +36,9 @@ public class Product {
 
     @Type(JsonType.class)
     @Column(name = "ingredient", columnDefinition = "jsonb")
-    private Set<Ingredient> ingredients;
+    private Set<ProductIngredient> ingredients;
 
-    public Product(Long id, String name, String description, double price, String slug, Set<Ingredient> ingredients) {
+    public Product(Long id, String name, String description, double price, String slug, Set<ProductIngredient> ingredients) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -68,8 +68,8 @@ public class Product {
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
 
-    public Set<Ingredient> getIngredients() { return ingredients; }
-    public void setIngredients(Set<Ingredient> ingredients) { this.ingredients = ingredients; }
+    public Set<ProductIngredient> getIngredients() { return ingredients; }
+    public void setIngredients(Set<ProductIngredient> ingredients) { this.ingredients = ingredients; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
