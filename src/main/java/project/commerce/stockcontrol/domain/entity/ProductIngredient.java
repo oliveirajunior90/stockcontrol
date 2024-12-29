@@ -1,13 +1,10 @@
-package project.commerce.stockcontrol.entity.Model;
+package project.commerce.stockcontrol.domain.entity;
 
 import jakarta.persistence.Column;
 
 public class ProductIngredient {
 
-    @Column(name = "ingredient_id", nullable = false)
     private Long ingredientId;
-
-    @Column(name = "quantity", nullable = false)
     private double quantity;
 
     public ProductIngredient(Long ingredientId, double quantity) {

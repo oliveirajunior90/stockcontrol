@@ -15,8 +15,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
-import project.commerce.stockcontrol.entity.Model.Product;
-import project.commerce.stockcontrol.entity.Model.ProductIngredient;
+import project.commerce.stockcontrol.domain.entity.Product;
+import project.commerce.stockcontrol.domain.entity.ProductIngredient;
 
 import java.util.HashSet;
 import java.util.Set;
