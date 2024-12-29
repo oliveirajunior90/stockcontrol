@@ -12,8 +12,11 @@ import java.util.Optional;
 @RequestMapping("/api/v1/products")
 public class ProductControllerV1 {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
+
+    ProductControllerV1(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
