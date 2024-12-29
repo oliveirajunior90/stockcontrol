@@ -1,9 +1,9 @@
-package project.commerce.stockcontrol.Product;
+package project.commerce.stockcontrol.application.service;
 
 import org.springframework.stereotype.Service;
-import project.commerce.stockcontrol.entity.Model.Product;
+import project.commerce.stockcontrol.domain.repository.ProductRepository;
+import project.commerce.stockcontrol.domain.entity.Product;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

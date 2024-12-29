@@ -1,7 +1,7 @@
-package project.commerce.stockcontrol.Stock;
+package project.commerce.stockcontrol.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import project.commerce.stockcontrol.entity.Model.Ingredient;
+import project.commerce.stockcontrol.domain.entity.Ingredient;
 
 import java.util.Optional;
 

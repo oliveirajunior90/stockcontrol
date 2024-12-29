@@ -1,4 +1,4 @@
-package project.commerce.stockcontrol.entity.Model;
+package project.commerce.stockcontrol.domain.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

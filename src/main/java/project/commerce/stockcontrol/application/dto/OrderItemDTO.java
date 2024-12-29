@@ -1,4 +1,4 @@
-package project.commerce.stockcontrol.dto;
+package project.commerce.stockcontrol.application.dto;
 
 public record OrderItemDTO(
         Long orderId,

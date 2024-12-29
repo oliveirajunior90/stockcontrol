@@ -1,15 +1,16 @@
-package project.commerce.stockcontrol.Product;
+package project.commerce.stockcontrol.application.api.v1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.commerce.stockcontrol.entity.Model.Product;
+import project.commerce.stockcontrol.application.service.ProductService;
+import project.commerce.stockcontrol.domain.entity.Product;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/products")
-public class ProductController {
+public class ProductControllerV1 {
 
     @Autowired
     private ProductService productService;

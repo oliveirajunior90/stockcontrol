@@ -1,17 +1,13 @@
 package project.commerce.stockcontrol.Stock;
 
-import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,16 +19,17 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import project.commerce.stockcontrol.BaseSpec;
 
-import project.commerce.stockcontrol.Product.ProductService;
-import project.commerce.stockcontrol.dto.OrderItemDTO;
-import project.commerce.stockcontrol.entity.Model.Ingredient;
-import project.commerce.stockcontrol.entity.Model.Product;
-import project.commerce.stockcontrol.entity.Model.ProductIngredient;
+import project.commerce.stockcontrol.application.service.ProductService;
+import project.commerce.stockcontrol.application.dto.OrderItemDTO;
+import project.commerce.stockcontrol.application.service.StockService;
+import project.commerce.stockcontrol.domain.entity.Ingredient;
+import project.commerce.stockcontrol.domain.entity.Product;
+import project.commerce.stockcontrol.domain.entity.ProductIngredient;
+import project.commerce.stockcontrol.domain.repository.StockRepository;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -136,7 +133,7 @@ public class StockControllerIT extends BaseSpec {
         HttpEntity<List<OrderItemDTO>> request = new HttpEntity<>(orderItems, headers);
 
         // Perform the request
-        String url = "http://localhost:" + port + "/api/v1/stock/update";
+        String url = "http://localhost:" + port + "/api/v1/stock/update-stock";
         ResponseEntity<Boolean> response = restTemplate.exchange(url, HttpMethod.POST, request, Boolean.class);
 
         // Verify the results

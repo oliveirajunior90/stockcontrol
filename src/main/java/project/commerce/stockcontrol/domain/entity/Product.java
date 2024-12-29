@@ -1,4 +1,4 @@
-package project.commerce.stockcontrol.entity.Model;
+package project.commerce.stockcontrol.domain.entity;
 
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.Column;
